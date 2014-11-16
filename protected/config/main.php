@@ -30,7 +30,7 @@ return array(
         'admin',
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'hello34',
+			'password'=>'hello34', //0rHf9n$2
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 			'generatorPaths' => array('bootstrap.gii'),

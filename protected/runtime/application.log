@@ -1381,3 +1381,12 @@ Stack trace:
 REQUEST_URI=/index.php/catalog
 HTTP_REFERER=http://galileo/index.php/site/index
 ---
+2014/11/16 15:39:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "catalog".' in Z:\domains\galileo\yii\web\CWebApplication.php:286
+Stack trace:
+#0 Z:\domains\galileo\yii\web\CWebApplication.php(141): CWebApplication->runController('catalog')
+#1 Z:\domains\galileo\yii\base\CApplication.php(180): CWebApplication->processRequest()
+#2 Z:\domains\galileo\index.php(12): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/catalog
+HTTP_REFERER=http://galileo/index.php/site/page?view=about
+---
