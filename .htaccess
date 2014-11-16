@@ -1,0 +1,11 @@
+addDefaultCharset UTF-8
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^assets/			-	[L]
+RewriteRule ^css/				-	[L]
+RewriteRule ^robots.txt$		-	[L]
+RewriteRule ^favicon.ico$		-	[L]
+RewriteRule ^google\w+.html$	-	[L]
+
+RewriteRule ^(.*)$ index.php [L,QSA]

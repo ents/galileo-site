@@ -32,6 +32,16 @@ class SiteController extends Controller
 		$this->render('index');
 	}
 
+    public function actionAd($id)
+    {
+        $place = AdPlace::model()->findByPk($id);
+        if (!$place) {
+            throw new CHttpException(404, "Место не найдено");
+        }
+
+		$this->render('ad', ['place' => $place]);
+    }
+
 	/**
 	 * This is the action to handle external exceptions.
 	 */
