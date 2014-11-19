@@ -23,7 +23,6 @@
 <div class="container" id="page">
     <?php echo TbHtml::tabs(array(
         array('label'=>'Главная', 'url'=>array('/site/index')),
-        array('label'=>'Каталог', 'url'=>array('/catalog/')),
         array('label'=>'О нас', 'url'=>array('/site/page', 'view'=>'about')),
         array('label'=>'Контакты', 'url'=>array('/site/contact')),
         array('label'=>'Войти', 'url'=>array('/user/login'), 'visible'=>Yii::app()->user->isGuest),

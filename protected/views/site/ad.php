@@ -23,9 +23,11 @@ $this->widget('ext.yandexmap.YandexMap',array(
 ));
 ?>
 <br />
-<h2>Описание</h2>
-<p><?=$place->text?></p>
+<div style="width: 400px; margin: auto; text-align: center">
+    <p><?=TbHtml::alert(TbHtml::ALERT_COLOR_INFO, $place->text, ['closeText' => false])?></p>
+    <p><?=TbHtml::alert(TbHtml::ALERT_COLOR_DANGER, 'Цена: 10 копеек за показ!', ['closeText' => false])?></p>
 
-<p style="text-align: center">
-    <?php echo TbHtml::button('Заказать рекламу', array('size'=>TbHtml::BUTTON_SIZE_LARGE, 'color' => TbHtml::BUTTON_COLOR_PRIMARY)); ?>
-</p>
+    <p style="text-align: center">
+        <?php $this->renderPartial('_buy_ad_form', array('model'=>$model)); ?>
+    </p>
+</div>

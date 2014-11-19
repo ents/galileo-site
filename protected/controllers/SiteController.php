@@ -2,6 +2,27 @@
 
 class SiteController extends Controller
 {
+    public function filters()
+    {
+        return array(
+            'accessControl', // perform access control for CRUD operations
+        );
+    }
+
+    public function accessRules()
+    {
+        return array(
+            array('allow', // allow admin user to perform 'admin' and 'delete' actions
+                'actions' => ['ad'],
+                'users' => array('@'),
+            ),
+            array('deny',  // deny all users
+                'actions' => ['ad'],
+                'users' => array('*'),
+            ),
+        );
+    }
+
 	/**
 	 * Declares class-based actions.
 	 */
@@ -39,7 +60,26 @@ class SiteController extends Controller
             throw new CHttpException(404, "Место не найдено");
         }
 
-		$this->render('ad', ['place' => $place]);
+        $model=new Ad('buy_add');
+        $model->user_id = Yii::app()->user->id;
+        $model->ad_place_id = $place->id;
+        if(isset($_POST['ajax']) && $_POST['ajax']==='ad-_buy_ad_form-form')
+        {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+        if(isset($_POST['Ad']))
+        {
+            $model->attributes=$_POST['Ad'];
+            if($model->validate())
+            {
+                $model->save();
+                $this->redirect("/ads/my");
+                return;
+            }
+        }
+
+		$this->render('ad', ['place' => $place, 'model' => $model]);
     }
 
 	/**

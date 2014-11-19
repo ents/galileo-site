@@ -11,12 +11,15 @@ return array(
 
 	// preloading 'log' component
 	'preload'=>array('log'),
+    'language' => 'ru',
 
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
+		'application.forms.*',
 		'application.components.*',
 		'bootstrap.helpers.*',
+		'bootstrap.widgets.*',
 		'bootstrap.behaviors.*',
         'application.modules.user.models.*',
         'application.modules.user.components.*',
@@ -46,6 +49,10 @@ return array(
             'loginUrl' => array('/user/login'),
             'returnUrl' => array('/user/profile'),
             'returnLogoutUrl' => array('/user/login'),
+            'relations' => [
+                'ads' => array(CActiveRecord::HAS_MANY, 'Ad', 'user_id'),
+                'adPlaces' => array(CActiveRecord::HAS_MANY, 'AdPlace', 'user_id'),
+            ],
         ),
 	),
 
@@ -54,6 +61,7 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+            'loginUrl' => array('/user/login'),
 		),
 		'urlManager'=>array(
 			'urlFormat'=>'path',
@@ -64,10 +72,10 @@ return array(
 			),
 		),
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=galileo',
+			'connectionString' => 'mysql:host=ad-line.biz;dbname=ad-line',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => 'ad-line',
+			'password' => '!QAZ2wsx',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(

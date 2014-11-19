@@ -1,7 +1,7 @@
 <?php
 include(__DIR__."/BaseController.php");
 
-class AdPlaceController extends Controller
+class AdPlaceController extends BaseController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
