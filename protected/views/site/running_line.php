@@ -12,20 +12,6 @@
 </script>
 
 <style>
-    html, body {
-        margin: 0px;
-        padding:30px 0;
-        width:100%;
-        height:100%;
-        font-family: Arial;
-        text-align:center;
-    }
-
-    .container{
-        width:500px;
-        margin: 0 auto;
-    }
-
     input.hidden{
         test-align:center;
         width:500%;
