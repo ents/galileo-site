@@ -22,7 +22,14 @@
 
 <div class="container" id="page" style="width: auto; max-width: 960px">
     <?php echo TbHtml::tabs(array(
-        array('label'=>'Главная', 'url'=>array('/site/index'), 'active' => $this->id=='site'&&$this->action->id=='index'),
+        array(
+            'label'=>'Главная', 'url'=>array('/site/index'), 'active' => $this->id=='site'&&($this->action->id=='index' || $this->action->id=='list'),
+            'items' => [
+                ['label'=>'Реклама на карте', 'url'=>array('/site/index'), 'active' => $this->id=='site'&&$this->action->id=='index',],
+                ['label'=>'Реклама списком', 'url'=>array('/site/list'), 'active' => $this->id=='site'&&$this->action->id=='list',],
+
+            ],
+        ),
         array('label'=>'О нас', 'url'=>array('/site/page', 'view'=>'about'), 'active' => $this->id=='site'&&$this->action->id=='page'),
         array('label'=>'Контакты', 'url'=>array('/site/contact'), 'active' => $this->id=='site'&&$this->action->id=='contact'),
         array('label'=>'Моя реклама', 'url'=>array('/ads/my'), 'active' => $this->id=='ads'&&$this->action->id=='my'),
