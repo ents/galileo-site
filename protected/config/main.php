@@ -47,8 +47,8 @@ return array(
             'registrationUrl' => array('/user/registration'),
             'recoveryUrl' => array('/user/recovery'),
             'loginUrl' => array('/user/login'),
-            'returnUrl' => array('/user/profile'),
-            'returnLogoutUrl' => array('/user/login'),
+            'returnUrl' => array('/'),
+            'returnLogoutUrl' => array('/'),
             'relations' => [
                 'ads' => array(CActiveRecord::HAS_MANY, 'Ad', 'user_id'),
                 'adPlaces' => array(CActiveRecord::HAS_MANY, 'AdPlace', 'user_id'),
@@ -71,11 +71,18 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
-		'db'=>array(
-			'connectionString' => 'mysql:host=ad-line.biz;dbname=ad-line',
+//		'db'=>array(
+//			'connectionString' => 'mysql:host=ad-line.biz;dbname=ad-line',
+//			'emulatePrepare' => true,
+//			'username' => 'ad-line',
+//			'password' => '!QAZ2wsx',
+//			'charset' => 'utf8',
+//		),
+        'db'=>array(
+			'connectionString' => 'mysql:host=localhost;dbname=ad-line',
 			'emulatePrepare' => true,
-			'username' => 'ad-line',
-			'password' => '!QAZ2wsx',
+			'username' => 'root',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(

@@ -20,11 +20,12 @@
 
 <body>
 
-<div class="container" id="page">
+<div class="container" id="page" style="width: auto; max-width: 960px">
     <?php echo TbHtml::tabs(array(
-        array('label'=>'Главная', 'url'=>array('/site/index')),
-        array('label'=>'О нас', 'url'=>array('/site/page', 'view'=>'about')),
-        array('label'=>'Контакты', 'url'=>array('/site/contact')),
+        array('label'=>'Главная', 'url'=>array('/site/index'), 'active' => $this->id=='site'&&$this->action->id=='index'),
+        array('label'=>'О нас', 'url'=>array('/site/page', 'view'=>'about'), 'active' => $this->id=='site'&&$this->action->id=='page'),
+        array('label'=>'Контакты', 'url'=>array('/site/contact'), 'active' => $this->id=='site'&&$this->action->id=='contact'),
+        array('label'=>'Моя реклама', 'url'=>array('/ads/my'), 'active' => $this->id=='ads'&&$this->action->id=='my'),
         array('label'=>'Войти', 'url'=>array('/user/login'), 'visible'=>Yii::app()->user->isGuest),
         array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/user/logout'), 'visible'=>!Yii::app()->user->isGuest),
     )); ?>
