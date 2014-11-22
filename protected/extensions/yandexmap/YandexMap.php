@@ -185,7 +185,7 @@ EQF;
 	}
         protected function route(){
 
-		if ($this->route["from"]=="") return;
+		if (empty($this->route["from"])) return;
 
 		$route = '';
                 $address2 = CJavaScript::encode($this->route["from"]);
