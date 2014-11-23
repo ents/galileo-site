@@ -50,6 +50,7 @@ class JsonController extends Controller
 
     public function actionTest()
     {
+        $level = 4000000;
         $letters = "ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ";
         for ($q = 0; $q < mb_strlen($letters, 'utf8'); $q++) {
             $text = mb_substr($letters, $q, 1, 'utf8');
@@ -57,12 +58,12 @@ class JsonController extends Controller
 
             imagettftext(
                 $image,      // как всегда, идентификатор ресурса
-                8,   // размер шрифта
+                7,   // размер шрифта
                 0,           // угол наклона шрифта
                 0, 8,      // координаты (x,y), соответствующие левому нижнему
                 // углу первого символа
-                0xFFFFFF,    // цвет шрифта
-                __DIR__ . '/../../fonts/arial.ttf',   // имя ttf-файла
+                -0xFFFFFF,    // цвет шрифта
+                __DIR__ . '/../../fonts/tahoma.ttf',   // имя ttf-файла
                 $text
             );
 
@@ -71,13 +72,31 @@ class JsonController extends Controller
                 $byte = 0;
                 for ($j = 8; $j >= 0; $j--) {
                     $color = imagecolorat($image, $i, $j);
-                    $byte = $byte * 2 + (int)($color > 10000000);
+                    $byte = $byte * 2 + (int)($color > $level);
                 }
                 $res[] = "0x".($byte<17?"0":"").(dechex($byte));
             }
-            imagedestroy($image);
 
             echo implode(", ", $res).", //".ord(mb_convert_encoding($text, "cp1251", "utf8"))."/ -> $text<br />";
+
+//            echo "<table border=1>";
+//            for ($j = 0; $j < 8; $j++) {
+//                echo "<tr>";
+//                for ($i = 0; $i < 8; $i++) {
+//                    echo "<td style='width: 15px; height: 15px;'>";
+//                    $color = imagecolorat($image, $i, $j);
+//                    if ($color > $level) {
+//                        echo "<b>X</b>";
+//                    } else {
+//                        echo "&nbsp;";
+//                    }
+//                    echo "</td>";
+//                }
+//                echo "</tr>";
+//            }
+//            echo "</table>";
+//            echo "<br />";
+            imagedestroy($image);
 
         }
     }
