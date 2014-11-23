@@ -23,9 +23,8 @@
 <div class="container" id="page" style="width: auto;">
 
     <div class="header">
-        <div style="width: 20%; margin-top: 20px; float: left; font-size: 40px; text-align: center;">AD-line</div>
-        <div style="width: 54%; float: left"></div>
-        <div style="width: 24%; float: right; font-size: 25px; line-height: 40px; margin-top: 10px;">
+        <div style="max-width: 300px; margin-left: 20px; margin-top: 20px; float: left; font-size: 40px; text-align: center;">AD-line</div>
+        <div style="max-width: 300px; margin-right: 20px; float: right; font-size: 25px; line-height: 40px; margin-top: 10px;">
             +7(916)4567-45-45<br />
             +7(916)4567-45-46<br />
         </div>
