@@ -25,6 +25,13 @@ foreach (AdPlace::model()->findAll() as $adPlace) {
 ?>
 <br />
 <h1 style="font-size: 30px; text-align: center">Добро пожаловать в AD-line &ndash; Интерактивная бегущая стока!</h1>
+
+<?if (empty($_GET['saved'])) {?>
+    <?php $this->renderPartial('_buy_ad_form_short', array('model'=>$model)); ?>
+<?} else {?>
+    <?=TbHtml::alert(TbHtml::ALERT_COLOR_SUCCESS, "Ваша строка успешно отправлена")?>
+<?}?>
+
 <div style="">
     <p>Новый взгляд на старые технологии или адаптивная, интерактивная бегущая строка с набором расширенных функций.</p>
 

@@ -50,7 +50,23 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+        $model = new Ad();
+        $model->user_id=1;
+        $model->ad_place_id=32;
+        $model->count_ordered=1;
+
+        if(isset($_POST['Ad']))
+        {
+            $model->attributes=$_POST['Ad'];
+            if($model->validate())
+            {
+                $model->save();
+                $this->redirect("/?saved=true");
+                return;
+            }
+        }
+
+		$this->render('index', ['model' => $model]);
 	}
 
     public function actionAd($id)

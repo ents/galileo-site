@@ -20,6 +20,7 @@ class JsonController extends Controller
                 "time" => time(),
                 "count" => $ad->count_ordered-$ad->count_showed,
             ];
+            $this->actionRegisterAdShow($ad->id, 1);
         }
 
         $this->renderResult($result);
@@ -50,8 +51,12 @@ class JsonController extends Controller
 
     public function actionTest()
     {
+        $data = [];
+        for ($i = 33; $i <= 65; $i++) {
+            $data[$i] = "0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00, //$i/ --> ' '";
+        }
         $level = 4000000;
-        $letters = "ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ";
+        $letters = "ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ-!№;%,.:?*()1234567890#$^&~'";
         for ($q = 0; $q < mb_strlen($letters, 'utf8'); $q++) {
             $text = mb_substr($letters, $q, 1, 'utf8');
             $image = imagecreatetruecolor(8, 8);
@@ -77,8 +82,8 @@ class JsonController extends Controller
                 $res[] = "0x".($byte<17?"0":"").(dechex($byte));
             }
 
-            echo implode(", ", $res).", //".ord(mb_convert_encoding($text, "cp1251", "utf8"))."/ -> $text<br />";
 
+            $data[ord(mb_convert_encoding($text, "cp1251", "utf8"))] = implode(", ", $res).", //".ord(mb_convert_encoding($text, "cp1251", "utf8"))."/ -> $text";
 //            echo "<table border=1>";
 //            for ($j = 0; $j < 8; $j++) {
 //                echo "<tr>";
@@ -99,6 +104,9 @@ class JsonController extends Controller
             imagedestroy($image);
 
         }
+
+        ksort($data);
+        echo implode("<br />", $data);
     }
 
     public function actionRegisterAdShow($ad_id, $count = 1)
@@ -118,10 +126,10 @@ class JsonController extends Controller
             $log->save();
 
             $transaction->commit();
-            $this->renderResult(["ok" => true]);
+           // $this->renderResult(["ok" => true]);
         } catch (Exception $e) {
             $transaction->rollback();
-            $this->renderResult(["ok" => false, "message" => "Data saving failed, resend data please. Details: ".$e->getMessage()]);
+           // $this->renderResult(["ok" => false, "message" => "Data saving failed, resend data please. Details: ".$e->getMessage()]);
         }
 
 

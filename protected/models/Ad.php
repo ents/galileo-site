@@ -36,7 +36,9 @@ class Ad extends CActiveRecord
 		return array(
 			array('ad_place_id, string, user_id, count_ordered, count_showed', 'required'),
 			array('ad_place_id, user_id, count_ordered, count_showed', 'numerical', 'integerOnly'=>true),
-			array('string', 'length', 'max'=>255, 'min' => 10),
+			array('string', 'length', 'max'=>50, 'min' => 5),
+			array('string', 'match', 'pattern' => '~^[\w.,! -]+$~u', 'message' => 'Строка может содержать только буквы латинского и русского алфавитов и знаки препинания',),
+
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, ad_place_id, user_id, string, count_ordered, count_showed, added', 'safe', 'on'=>'search'),
