@@ -71,7 +71,7 @@ class Ad extends CActiveRecord
 			'id' => 'ID',
 			'ad_place_id' => 'Ad Place',
 			'user_id' => 'User',
-			'string' => 'Рекламная строка',
+			'string' => 'Текст строки',
 			'count_ordered' => 'Количество показов',
 			'count_showed' => 'Откручено показов',
 			'added' => 'Added',

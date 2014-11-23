@@ -12,7 +12,6 @@ $this->breadcrumbs=array(
 
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
     'dataProvider' => $model->search(),
-    'filter' => $model,
     'template' => "{items}",
     'columns' => array(
         'string',
@@ -32,9 +31,42 @@ $this->breadcrumbs=array(
                 if (!$count) {
                     return "0";
                 }
-                return TbHtml::alert(TbHtml::ALERT_COLOR_SUCCESS, "+$count", ['closeText' => false]);
+                return "+$count";;
             },
             'type' => 'html',
         ],
+        [
+            'header' => 'Температура',
+            'value' => function(){
+                return '+18.2';
+            },
+            'type' => 'html',
+        ],
+        [
+            'header' => 'К-во прохожих за сегодня',
+            'value' => function(){
+                return (int)((time()%1000)/10);
+            },
+            'type' => 'html',
+        ],
+        [
+            'class' => 'TbButtonColumn',
+            'template' => '{delete}',
+        ],
     ),
 )); ?>
+
+
+<style>
+    .grid-view .table td {
+        text-align: center;
+    }
+    .grid-view .table th {
+        text-align: center;
+        background: #646869;
+        color: white;
+    }
+    .grid-view .table th a.sort-link{
+        color: white;
+    }
+</style>

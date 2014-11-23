@@ -26,6 +26,10 @@ class AdsController extends Controller
 		$this->render('index');
 	}
 
+    public function actionView($id) {
+        $this->redirect("/site/ad/$id");
+    }
+
 	public function actionMy()
 	{
         /** @var $user User */
@@ -36,4 +40,10 @@ class AdsController extends Controller
         //$model->user_id = Yii::app()->user->id;
 		$this->render('my', ['model' => $model]);
 	}
+
+    public function actionDelete($id)
+    {
+        $Ad = Ad::model()->findByPk($id);
+        $Ad->delete();
+    }
 }

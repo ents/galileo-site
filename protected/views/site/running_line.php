@@ -1,7 +1,7 @@
 <div class="container" style="position: relative; top: -20px; width: 90%">
     <input placeholder = "type here" class=hidden value="AD-LINE.BIZ - BUY ADS ONLINE">
     <div class="line" id="l1">
-        <div class="line_text" style="margin-top -5px;"></div>
+        <div class="line_text"></div>
         <div class="line_cover"></div>
     </div>
 </div>
@@ -53,12 +53,12 @@
     /****** Line 1 *******/
 
     #l1.line{
-        height:45px;
+        height:80px;
         background:rgb(80,80,80);
     }
 
     #l1.line .line_text{
-        font-size:48px;
+        font-size:70px;
         font-weight:bold;
         color:red;
         -webkit-animation: l1_animation 10s linear infinite;

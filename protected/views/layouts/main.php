@@ -20,19 +20,32 @@
 
 <body>
 
-<div class="container" id="page" style="width: auto; max-width: 960px">
+<div class="container" id="page" style="width: auto;">
+
+    <div class="header">
+        <div style="width: 20%; margin-top: 20px; float: left; font-size: 40px; text-align: center;">AD-line</div>
+        <div style="width: 54%; float: left"></div>
+        <div style="width: 24%; float: right; font-size: 25px; line-height: 40px; margin-top: 10px;">
+            +7(916)4567-45-45<br />
+            +7(916)4567-45-46<br />
+        </div>
+        <div style="clear: both"></div>
+    </div>
+
+
+
     <?php echo TbHtml::tabs(array(
         array(
             'label'=>'Главная', 'url'=>array('/site/index'), 'active' => $this->id=='site'&&($this->action->id=='index' || $this->action->id=='list'),
-            'items' => [
-                ['label'=>'Реклама на карте', 'url'=>array('/site/index'), 'active' => $this->id=='site'&&$this->action->id=='index',],
-                ['label'=>'Реклама списком', 'url'=>array('/site/list'), 'active' => $this->id=='site'&&$this->action->id=='list',],
-
-            ],
+//            'items' => [
+//                ['label'=>'Реклама на карте', 'url'=>array('/site/index'), 'active' => $this->id=='site'&&$this->action->id=='index',],
+//                ['label'=>'Реклама списком', 'url'=>array('/site/list'), 'active' => $this->id=='site'&&$this->action->id=='list',],
+//
+//            ],
         ),
         array('label'=>'О нас', 'url'=>array('/site/page', 'view'=>'about'), 'active' => $this->id=='site'&&$this->action->id=='page'),
         array('label'=>'Контакты', 'url'=>array('/site/contact'), 'active' => $this->id=='site'&&$this->action->id=='contact'),
-        array('label'=>'Моя реклама', 'url'=>array('/ads/my'), 'active' => $this->id=='ads'&&$this->action->id=='my'),
+        array('label'=>'Моя реклама', 'url'=>array('/ads/my'), 'visible'=>!Yii::app()->user->isGuest, 'active' => $this->id=='ads'&&$this->action->id=='my'),
         array('label'=>'Войти', 'url'=>array('/user/login'), 'visible'=>Yii::app()->user->isGuest),
         array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/user/logout'), 'visible'=>!Yii::app()->user->isGuest),
     )); ?>

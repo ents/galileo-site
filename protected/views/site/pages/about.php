@@ -6,7 +6,10 @@ $this->breadcrumbs=array(
 	'About',
 );
 ?>
-<h1>About</h1>
+<h1>О нас</h1>
 
-<p>This is a "static" page. You may change the content of this page
-by updating the file <code><?php echo __FILE__; ?></code>.</p>
+<?php echo TbHtml::carousel(array(
+    array('image' => '/images/slide/1.GIF', 'label' => 'Бегущая строка AD-line - это работа в режиме реального времени.Теперь вы можете управлять содержимым Вашей бегущей строки с любой точки мира!'),
+    array('image' => '/images/slide/3.GIF', 'label' => 'Вам открыта возможность получать информацию о температуре окружающей среды, в которой находится Ваша строка и информацию о количестве людей, просмотревших ее за день'),
+    array('image' => '/images/slide/4.GIF', 'label' => 'За счет возможности моментального обновления информации и поддержания ее актуальности, круг сфер использования Вашей бегущей строки значительно широк'),
+)); ?>

@@ -2,6 +2,7 @@ addDefaultCharset UTF-8
 
 RewriteEngine On
 RewriteBase /
+RewriteRule ^images/			-	[L]
 RewriteRule ^assets/			-	[L]
 RewriteRule ^css/				-	[L]
 RewriteRule ^robots.txt$		-	[L]

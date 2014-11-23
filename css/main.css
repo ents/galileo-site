@@ -2,18 +2,40 @@ body
 {
 	margin: 0;
 	padding: 0;
-	color: #555;
-	font: normal 10pt Arial,Helvetica,sans-serif;
-	background: #EFEFEF;
+	color: #646869;
+	font: normal 14px Tahoma,Arial,Helvetica,sans-serif;
+	background: #646869;
 }
+h1,h2,h3,h4,h5,h6 {
+	color: #646869;
 
+}
+.progress, .alert {
+    margin: 0;
+}
 #page
 {
 	margin-top: 5px;
 	margin-bottom: 5px;
-	background: white;
 	border: 1px solid #C9E0ED;
+    background-color: #F7F7F7;
 }
+
+
+div.container>ul.nav>li {
+    font-size:1.2em;
+
+}
+div.container>ul.nav>li a{
+    color: #646869;
+}
+div.container>.nav-tabs>li.active a{
+    background-color: inherit;
+}
+a {
+    text-decoration: none;
+}
+
 
 #header
 {
@@ -21,7 +43,10 @@ body
 	padding: 0;
 	border-top: 3px solid #C9E0ED;
 }
-
+.container {
+    max-width: 1200px;
+    border-radius:10px;
+}
 #content
 {
     padding: 20px;

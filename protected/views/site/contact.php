@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Contact Us</h1>
+<h1>Свяжитесь с нами</h1>
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
 
@@ -18,10 +18,6 @@ $this->breadcrumbs=array(
 </div>
 
 <?php else: ?>
-
-<p>
-If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-</p>
 
 <div class="form">
 
@@ -32,8 +28,6 @@ If you have business inquiries or other questions, please fill out the following
 	),
 )); ?>
     <?/** @var $form TbActiveForm */?>
-
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -53,18 +47,10 @@ If you have business inquiries or other questions, please fill out the following
 		<?php echo $form->textArea($model,'body',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'body'); ?>
 
-	<?php if(CCaptcha::checkRequirements()): ?>
-		<?php echo $form->labelEx($model,'verifyCode'); ?>
-		<div>
-		<?php $this->widget('CCaptcha'); ?>
-		<?php echo $form->textField($model,'verifyCode'); ?>
-		</div>
-		<div class="hint">Please enter the letters as they are shown in the image above.
-		<br/>Letters are not case-sensitive.</div>
-		<?php echo $form->error($model,'verifyCode'); ?>
-	<?php endif; ?>
+        <br />
+        <br />
+        <?php echo TbHtml::button('Отправить сообщение', array('type' => 'submit', 'size' => TbHtml::BUTTON_SIZE_LARGE)); ?>
 
-    <?php echo CHtml::submitButton('Submit'); ?>
 
 <?php $this->endWidget(); ?>
 
